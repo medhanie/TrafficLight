@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Traffic Light</title>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js" ></script>
+<script>
+	var counter=1;
+	$(document).ready(function(){
+		
+		setInterval(function(){
+			/*var mod=counter % 3 ;
+			if( mod == 0){
+				$("#red").removeClass("lightoff").addClass("lighton");
+				$("#green").removeClass("lighton").addClass("lightoff");
+			}
+			else if(mod ==1){
+				$("#yellow").removeClass("lightoff").addClass("lighton");
+				$("#red").removeClass("lighton").addClass("lightoff");
+			}
+			else {
+				$("#green").removeClass("lightoff").addClass("lighton");
+				$("#yellow").removeClass("lighton").addClass("lightoff");
+			}
+			
+			counter++;*/
+			
+			var current=$("#container div.lighton");
+			var next=current.next();
+			if(next.length == 0)
+				next=$("div :first");
+			
+			current.removeClass("lighton").addClass("lightoff");
+			next.removeClass("lightoff").addClass("lighton");
+			
+		}, 2000);
+		
+	});
+</script>
+<style>
+		
+	#container{
+		width: 100px;
+		height: 290px;
+		background-color: #000;
+		border-style: solid;
+		border-width: 5px;
+		border-color: #fea;
+		border-radius: 20px;
+		padding: 20px;
+	
+	}
+	
+	.light{
+		width:80px;
+		height:80px;
+		margin: 10px;
+		border-radius: 40px;
+	}
+	.red{
+		background-color: #f00;
+	}
+	
+	.yellow{
+		background-color: #ff0;
+	}
+	.green{
+		background-color: #0f0;
+	}
+	
+	.lighton{
+		opacity: 1;
+	}
+	
+	.lightoff{
+		opacity: 0.3;
+	}
+</style>
+
+</head>
+
+<body>
+	<div id="container" >
+		<div id="red" class="light red lighton"></div>
+		<div id="yellow" class="light yellow lightoff"></div>
+		<div id="green" class="light green lightoff"></div>
+	</div>
+</body>
+</html>
