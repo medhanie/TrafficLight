@@ -6,6 +6,8 @@
 <script>
 	var counter=1;
 	$(document).ready(function(){
+	
+		//A function that changes the color of light at every one second
 		
 		setInterval(function(){
 			/*var mod=counter % 3 ;
@@ -24,6 +26,8 @@
 			
 			counter++;*/
 			
+			//Other Better Alternative
+			
 			var current=$("#container div.lighton");
 			var next=current.next();
 			if(next.length == 0)
@@ -32,7 +36,7 @@
 			current.removeClass("lighton").addClass("lightoff");
 			next.removeClass("lightoff").addClass("lighton");
 			
-		}, 2000);
+		}, 1000);
 		
 	});
 </script>
